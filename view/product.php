@@ -1,53 +1,104 @@
 <?php
-    // Parse data
-    $category_id = $product['categoryID'];
-    $product_code = $product['productCode'];
-    $product_name = $product['productName'];
-    $description = $product['description'];
-    $list_price = $product['listPrice'];
-    $discount_percent = $product['discountPercent'];
+    require 'database.php';
 
-    // Add HMTL tags to the description
-    $description = add_tags($description);
+    // Get category ID
+    $category_id = $_GET['category_id'];
+    if (!isset($category_id)) {
+        $category_id = 1;
+    }
+
+    // Get name for current category
+    $query = "SELECT * FROM categories
+              WHERE categoryID = $category_id";
+    $category = $db->query($query);
+    $category = $category->fetch();
+    $category_name = $category['categoryName'];
+
+    // Get all categories
+    $query = 'SELECT * FROM categories
+              ORDER BY categoryID';
+    $categories = $db->query($query);
+
+    // Get products for selected category
+    $query = "SELECT * FROM products
+              WHERE categoryID = $category_id
+              ORDER BY productID";
+    $products = $db->query($query);
+?>
+<?php
+require_once('util/main.php');
+require_once('util/tags.php');
+require_once('model/database.php');
+require_once('model/product_db.php');
+require_once('model/category_db.php');
+
+// Get all categories
+$categories = get_categories();
+
+// Set the featured product IDs in an array
+$product_ids = array(1, 7, 9);
+// Note: You could also store a list of featured products in the database
+
+// Get an array of featured products from the database
+$products = array();
+foreach ($product_ids as $product_id) {
+    $product = get_product($product_id);
+    $products[] = $product;   // add product to array
+}
+
+// Display the home page
+include('home_view.php');
+?>
+<?php
+require('../model/database.php');
+require('../model/product_db.php');
+require('../model/category_db.php');
+
+if (isset($_POST['action'])) {
+    $action = $_POST['action'];
+} else if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = 'list_products';
+}
+
+if ($action == 'list_products') {
+    $category_id = $_GET['category_id'];
+    if (empty($category_id)) {
+        $category_id = 1;
+    }
+
+    $categories = get_categories();
+    $category_name = get_category_name($category_id);
+    $products = get_products_by_category($category_id);
+
+    include('product_list.php');
+} else if ($action == 'view_product') {
+    $categories = get_categories();
+
+    $product_id = $_GET['product_id'];
+    $product = get_product($product_id);
+
+    // Get product data
+    $code = $product['productCode'];
+    $name = $product['productName'];
+    $list_price = $product['listPrice'];
+
+    // Set the discount percent (for all web orders)
+    $discount_percent = 30;
 
     // Calculate discounts
-    $discount_amount = round($list_price * ($discount_percent / 100), 2);
+    $discount_amount = round($list_price * ($discount_percent / 100.0), 2);
     $unit_price = $list_price - $discount_amount;
 
-    // Format discounts
-    $discount_percent = number_format($discount_percent, 0);
+    // Format the calculations
     $discount_amount = number_format($discount_amount, 2);
     $unit_price = number_format($unit_price, 2);
 
     // Get image URL and alternate text
-    $image_filename = $product_code . '_m.png';
-    $image_path = $app_path . 'images/' . $image_filename;
-    $image_alt = 'Image filename: ' . $image_filename;
+    $image_filename = '../images/' . $code . '.png';
+    $image_alt = 'Image: ' . $code . '.png';
+
+    include('product_view.php');
+}
 ?>
-
-<h1><?php echo $product_name; ?></h1>
-<div id="left_column">
-    <p><img src="<?php echo $image_path; ?>"
-            alt="<?php echo $image_alt; ?>" /></p>
-</div>
-
-<div id="right_column">
-    <p><b>List Price:</b>
-        <?php echo '$' . $list_price; ?></p>
-    <p><b>Discount:</b>
-        <?php echo $discount_percent . '%'; ?></p>
-    <p><b>Your Price:</b>
-        <?php echo '$' . $unit_price; ?>
-        (You save
-        <?php echo '$' . $discount_amount; ?>)</p>
-    <form action="<?php echo $app_path . 'cart' ?>" method="post">
-        <input type="hidden" name="action" value="add" />
-        <input type="hidden" name="product_id"
-               value="<?php echo $product_id; ?>" />
-        <b>Quantity:</b>
-        <input type="text" name="quantity" value="1" size="2" />
-        <input type="submit" value="Add to Cart" />
-    </form>
-    <h2>Description</h2>
-    <?php echo $description; ?>
-</div>

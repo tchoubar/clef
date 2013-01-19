@@ -1,18 +1,19 @@
-<link rel="stylesheet" href="main.css" />
 <?php include 'view/header.php'; ?>
-<img src="images/112316_1986.jpg" alt="Clef" width="100%"
-			height="300" />
-<?php include 'view/sidebar.php'; ?>
+
+<?php include 'sidebar.php'; ?>
+
 <div id="content">
     <br />
-    <p>La Clef has a great selection of
-        musical instruments including guitars, basses, and drums. And we're
-        constantly adding more to give you the best selection possible!
-    </p>
-
     <!-- display product -->
     <h1>Featured products</h1>
     <table>
+    <tr>
+<!--   		<td>
+             <p>Category: -->
+              <?php /* echo $category_name; */?>
+<!--  </p>
+             </td>
+-->    		 </tr>
     <?php foreach ($products as $product) :
         // Get product data
         $list_price = $product['listPrice'];
@@ -27,19 +28,23 @@
         $description = add_tags($description);
         $i = strpos($description, "</p>");
         $description = substr($description, 3, $i-3);
+        
     ?>
+      
+      
         <tr>
             <td id="product_image_column">
                 <img src="images/<?php echo $product['productCode']; ?>_s.png"
                      alt="&nbsp;">
             </td>
+            
             <td>
                 <p>
-                    <a href="catalog?action=view_product&amp;product_id=<?php 
-                              echo $product['productID']; ?>">
+<!--                     <a href="?action=view_product&amp;product_id=<?php 
+                             /* echo $product['productID']; */?>">-->
                         <?php echo $product['productName']; ?>
-                    </a>
-                </p>
+<!--                     </a>
+-->                </p>
                 <p>
                     <b>Your price:</b>
                     $<?php echo number_format($unit_price, 2); ?>

@@ -1,8 +1,12 @@
 
         </div><!-- end main -->
+        
         <div id="footer">
+        
             <p class="copyright">
-                &copy; <?php echo date("Y"); ?> My Guitar Shop, Inc.
+            <a href="contact.php">Contact</a>
+            
+                &copy; <?php echo date("Y"); ?> La Clef
             </p>
         </div>
     </div><!-- end page -->

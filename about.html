@@ -1,0 +1,198 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <!-- the head section -->
+    <head>
+        <title>La Clef Guitar Shop</title>
+        <link rel="stylesheet" href="css/nav.css" /> 
+       	<link rel="stylesheet" type="text/css" 
+			    href="<?php echo $app_path ?>main.css" />
+		<link rel="stylesheet" type="text/css" href="main.css" />
+			     <style type="text/css">
+			     .slider{
+			     width:500px;
+			     height:300px;
+			     overflow:hidden;
+			     margin:30px auto;
+	/*		     background-image:url(images/preloader.gif);
+			     background-repeat:no-repeat;
+			     background-position:center;
+	*/		     }
+			     .slider img{
+			     width:100%;
+			     height:300px;
+			     display:none;
+			     }
+			     </style>
+			    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+				<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>	
+	<script type="text/javascript">
+		function Slider(){
+			$(".slider #1").show("slide",{direction: 'left'}, 500);
+			$(".slider #1").delay(2500).hide("slide",{direction:"right"}, 500);
+			var sc=$(".slider img").size();
+			   var count=2;
+
+			   setInterval(function(){
+			        $(".slider #"+count).show("slide",{direction: 'left'}, 500);
+			        $(".slider #"+count).delay(2500).hide("slide", {direction: 'right'}, 500);
+			        if(count ==sc){
+			            count=1;
+
+			        }else{
+			        count= count + 1;
+			        }
+			    },3500);
+			}
+
+	</script>
+			    </head>
+
+    <!-- the body section -->
+ <body onload="Slider();">
+<!--	<body>		-->    
+    <div id="page"> 
+        <div id="header">
+            <h1>La Clef</h1>
+        </div>
+        
+        <div id="main">
+		<div class="slider">
+        	
+			<img id="1" src="images/687611_53029890.jpg" alt="Clef" width="300"
+			height="300" />
+			<img id="2" src="images/705088_94409189.jpg" alt="Clef" width="300"
+			height="300" />
+			<img id="3" src="images/671492_61691585.jpg" alt="Clef" width="300"
+			height="300" />
+       		<img id="4" src="images/1_s.jpg" alt="Clef" width="300"
+			height="300" />		
+			
+        </div>
+		<nav>
+			<ul id="main">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About us</a></li>
+				<li><a href="product.php">Catalog</a></li> 
+				<li><a href="videos.php">Videos</a></li> 
+				<li><a href="http://www.apple.com/itunes/">iTunes</a></li> 
+       			<li><a href="http://desaules.wordpress.com/publications/">Blog</a></li>
+				<li><a href="contact.php">Contact</a></li> 
+			</ul>
+		</nav>
+<div id="sidebar">
+    <ul>
+        <!-- These links are for testing only.
+             Remove them from a production application. -->
+        <h2>
+        <li>
+            <a href="product.php">Products</a>
+        </li>
+        </h2>
+        <h2>
+        <li>
+            <a href="services.php">Services</a>
+        </li>
+        </h2>
+        <li>&nbsp;</li>
+    </ul>
+</div>
+<div id="content">
+    <br />
+    <meta name=" Robots " content=" All " />
+<meta name="Author" content="Tatiana Tchoubar" />
+<meta name="description" content="Tatiana Tchoubar ePortfolio" />
+<meta name="keywords" content="Tchoubar, French, eLearning, Instructional, online" />
+<table width="100%">
+     <tbody>
+         <tr>
+             <td>
+             <div align="left">
+             
+             <div>As a child,&nbsp;I lived with&nbsp;my parents in French Algeria. French citizen, recently arrived from Paris,&nbsp;I worked as a professor at College de Notre Dame in Versailles, at Lycee Charlemagne in Paris, at the Distance Education Department of Sorbonne Nouvelle University and volunteered&nbsp;my time at Brookhaven National Laboratory in NY state (see p. 3 of this <a title="BNL publication" href="http://www.bnl.gov/bnlweb/pubaf/bulletin/2009/bb032709.pdf" target="_blank">BNL publication</a>) as well as at the <a title="SchoolPlus" href="http://schoolplusstonybrook.com/main/teacherinfo?teacher_id=19" target="_blank">SchoolPlus</a> at Stony Brook. </div>
+             </td>
+             <td>
+             <div align="center"> <object id="widget_name" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100" height="133">
+             <param name="movie" value="http://vhss-d.oddcast.com/vhss_editors/voki_player.swf?doc=http://vhss-d.oddcast.com/php/vhss_editors/getvoki/chsm=5e41786244ef57911095c1e9eeb85640%26sc=4200671" />
+             <param name="quality" value="high" />
+             <param name="allowScriptAccess" value="always" />
+             <param name="width" value="100" />
+             <param name="height" value="133" />
+             <param name="allowNetworking" value="all" />
+             <param name="wmode" value="transparent" />
+             <param name="allowFullScreen" value="true" /><embed height="133" width="100" src="http://vhss-d.oddcast.com/vhss_editors/voki_player.swf?doc=http%3A%2F%2Fvhss-d.oddcast.com%2Fphp%2Fvhss_editors%2Fgetvoki%2Fchsm=5e41786244ef57911095c1e9eeb85640%26sc=4200671" quality="high" allowscriptaccess="always" allownetworking="all" wmode="transparent" allowfullscreen="true" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" name="widget_name"> </object></div>
+             </td>
+             <td><span id="ctl00_cphMain_drpWelcomeNotes_ctl02_lblTitle" class="txtBlue lbl">
+             <div align="center"></div>
+             </span></td>
+         </tr>
+     </tbody>
+</table>
+<div>&nbsp;</div>
+<div>I&nbsp;obtained&nbsp;my Master 2 diploma in distance learning engineering in the domain of languages, literature arts, art and contemporary society from Sorbonne Nouvelle University, Paris, France.&nbsp;</div>
+<div>At the same time,&nbsp;I was working at the Department of Distant Education of the University, helping faculty to develop online presence and customizing a Liferay CMS to create <a title="eSorbonne" href="http://isorbonne.univ-paris3.fr/" target="_blank">eSorbonne</a>, a multimedia broadcasting site of the University. Professors at the Doctorate School at Sorbonne University were interested in&nbsp;my Masters thesis, so they proposed that&nbsp;I enroll in the Ph.D. program at Sorbonne. The subject of&nbsp;my <a title="dissertation" href="http://www.dailymotion.com/video/x6twfz_les-relations-entre-l-art-et-intern_creation" target="_blank">dissertation</a> was Using art for knowledge transmission on educational Internet sites.</div>
+<div>&nbsp;</div>
+<table width="100%">
+     <tbody>
+         <tr>
+             <td>
+             <div>Now residing on Long Island in the U.S.,&nbsp;I am&nbsp;in the Ph.D. program on educational technologies at Stony Brook University, and also working as Instructional Technologist/Professor at Suffolk County Community College.&nbsp;I am&nbsp;overseeing the development of the <a title="Virtual Learning Commons" href="http://www.youtube.com/watch?v=5OF3hlfFpsE" target="_blank">Virtual Learning Commons</a>, a separate online area where students can freely use learning objects and a social networking space.</div>
+             </td>
+         </tr>
+     </tbody>
+</table>
+<div>&nbsp;</div>
+<div>In&nbsp;my spare time&nbsp;I write and publish fiction. One of&nbsp;my books, Matouchka de Tatiana Yva, is on sell in the Editeurs Reunis Library, 11 rue de la Montagne St Genevi&#232;ve, 75006 PARIS. </div>
+<div>In 2006&nbsp;I was awarded the Sorbonne literary contest prize for a <a title="novel in French" href="http://www.recherches-slaves.paris-sorbonne.fr/CS_HS9/Yva.doc" target="_blank">novel in French</a>, Toi.</div>
+<div>&nbsp;</div>
+<div>Favorite passtime is editing a free&nbsp;<a title="online learning site" href="http://desaules.wordpress.com/actifrench/" target="_blank">online learning site</a> of French as a foreign language. </div>
+<div>&nbsp;</div>
+<div>
+<table width="100%">
+     <tbody>
+         <tr>
+             <td><span id="ctl00_cphMain_drpWelcomeNotes_ctl04_lblTitle" class="txtBlue lbl"><strong>Academic Interests</strong></span></td>
+         </tr>
+         <tr>
+             <td>
+             <div>&nbsp;</div>
+             <div>I hold a Master&#8217;s degree in education from the Sorbonne University, Paris, France, in languages, literature arts, art and contemporary society. Previously graduated with honors in languages &amp; translation from Moscow Linguistic University. I have passed New York State Teachers Certification Examinations. </div>
+             <div>&nbsp;</div>
+             <div>At present, I am working on PhD dissertation at Stony Brook University, Department of Technology &amp; Society, which allows me to reconsiliate my Bachelor in Computer Sciences&nbsp;and Master in Education degrees, as well as my expertise of software developer with the one of college professor. In my latest <a title="CTF conference presentation, VLC &amp; student success, Susan Lieberthal, Tatiana Tchoubar, Min Su" href="http://hosted.mediasite.com/mediasite/Viewer/?peid=aec5122855634914a0fd1e8956756b391d" target="_blank">online session</a>, at Campus Technology Forum 2012, I have presented, together with my colleagues,&nbsp;a positive impact of&nbsp;the Virtual Learning Commons' language and sciences&nbsp;materials on student success.</div>
+             <div>&nbsp;</div>
+             </td>
+         </tr>
+         <tr>
+             <td><span id="ctl00_cphMain_drpWelcomeNotes_ctl02_lblTitle" class="txtBlue lbl"><strong>Career Interests</strong></span></td>
+         </tr>
+         <tr>
+             <td>
+             <div>&nbsp;</div>
+             <div>The United States hold an incontestable leadership position in the domain of educational technologies, and that is why I choose to continue my research work in a US university. Doing so, I could bring the new approaches and technologies to the distance learning institutions in France, were I would like to develop distance learning partnerships with American universities.</div>
+             <div>&nbsp;</div>
+             <div>I am looking for a position of Faculty and/or Instructional Designer in online education area. </div>
+             <div>&nbsp;</div>
+             <div>Besides, after being for many years web programmer and then professor,&nbsp;I would like to work in the field related to various aspects of information processing on the Internet courseware.</div>
+             <div>&nbsp;</div>
+             <div>Any suggestions of research collaboration in this field are very welcome :)</div>
+             </td>
+         </tr>
+     </tbody>
+</table>
+</div>
+<div>&nbsp;</div>
+   
+</div>
+   </div><!-- end main -->
+        
+        <div id="footer">
+        
+            <p class="copyright">
+                &copy; <?php echo date("Y"); ?> La Clef
+            </p>
+        </div>
+    </div><!-- end page -->
+    </body>
+</html>
